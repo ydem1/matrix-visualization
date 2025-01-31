@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { getSumAmount } from "src/utils/getSumAmount";
 import { Cell } from "src/@types/cell";
 import { TableCell } from "../TableCell";
 import styles from "./TableRow.module.scss";
@@ -16,6 +17,6 @@ export const TableRow: FC<Props> = ({ currentRowNumber, rows }) => (
       <TableCell key={id}>{amount}</TableCell>
     ))}
 
-    <TableCell>amount</TableCell>
+    <TableCell>{getSumAmount(rows)}</TableCell>
   </tr>
 );

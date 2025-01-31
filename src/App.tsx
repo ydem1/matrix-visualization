@@ -1,5 +1,5 @@
 import "./App.css";
-import { MatrixProvider, N } from "./components/MatrixContext";
+import { MatrixProvider } from "./components/MatrixContext";
 import { Table, TableBody, TableHeader } from "./components/Table";
 import { TableFooter } from "./components/Table/TableFooter";
 
@@ -12,8 +12,7 @@ const App = () => (
 
       <section>
         <Table ariaLabel={TITLE}>
-          {/* temp */}
-          <TableHeader columnNumbers={N} />
+          <TableHeader />
           <TableBody />
           <TableFooter />
         </Table>

@@ -1,9 +1,7 @@
 import React, { createContext, FC, ReactNode, useMemo, useState } from "react";
 import { generateMatrix } from "src/utils/generateMatrix";
+import { M, N } from "src/constants/inputsValues";
 import { Cell } from "src/@types/cell";
-
-const M = 4;
-export const N = 6;
 
 const initiatMatrix: Cell[][] = generateMatrix(M, N);
 

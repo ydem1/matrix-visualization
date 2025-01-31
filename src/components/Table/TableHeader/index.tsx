@@ -1,16 +1,14 @@
+import { FC } from "react";
 import { getArrayNumbers } from "src/utils/getArrayNumbers";
+import { N } from "src/constants/inputsValues";
 import styles from "./TableHeader.module.scss";
 
-interface Props {
-  columnNumbers: number;
-}
-
-export const TableHeader: React.FC<Props> = ({ columnNumbers }) => (
+export const TableHeader: FC = () => (
   <thead className={styles["table-header"]}>
     <tr className={styles["table-header__row"]}>
       <th className={styles["table-header__empty-cell"]} />
 
-      {getArrayNumbers(columnNumbers).map((number) => (
+      {getArrayNumbers(N).map((number) => (
         <th key={number} className={styles["table-header__cell"]}>
           {number}
         </th>

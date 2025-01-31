@@ -1,2 +1,2 @@
-export const MIN_AMOUNT_RANGE = 1;
-export const MAX_AMOUNT_RANGE = 9;
+export const MIN_AMOUNT_RANGE = 100;
+export const MAX_AMOUNT_RANGE = 999;

@@ -1,29 +1,24 @@
 import "./App.css";
+import { MatrixProvider, N } from "./components/MatrixContext";
 import { Table, TableBody, TableHeader } from "./components/Table";
 import { TableFooter } from "./components/Table/TableFooter";
-import { generateMatrix } from "./utils/generateMatrix";
-
-const M = 4;
-const N = 6;
 
 const TITLE = "Matrix visualization";
 
-function App() {
-  const matrix = generateMatrix(M, N);
-
-  return (
+const App = () => (
+  <MatrixProvider>
     <main>
       <h1>{TITLE}</h1>
 
       <section>
         <Table ariaLabel={TITLE}>
           <TableHeader columnNumbers={N} />
-          <TableBody matrix={matrix} />
-          <TableFooter matrix={matrix} />
+          <TableBody />
+          <TableFooter />
         </Table>
       </section>
     </main>
-  );
-}
+  </MatrixProvider>
+);
 
 export default App;

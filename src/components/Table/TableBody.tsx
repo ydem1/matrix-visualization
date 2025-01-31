@@ -1,15 +1,15 @@
-import { FC } from "react";
-import { Cell } from "src/@types/cell";
+import { FC, useContext } from "react";
+import { MatrixContext } from "../MatrixContext";
 import { TableRow } from "./TableRow";
 
-interface Props {
-  matrix: Cell[][];
-}
+export const TableBody: FC = () => {
+  const { matrix } = useContext(MatrixContext);
 
-export const TableBody: FC<Props> = ({ matrix }) => (
-  <tbody>
-    {matrix.map((item, index) => (
-      <TableRow key={index} rows={item} currentRowNumber={index + 1} />
-    ))}
-  </tbody>
-);
+  return (
+    <tbody>
+      {matrix.map((item, index) => (
+        <TableRow key={index} rows={item} currentRowNumber={index + 1} />
+      ))}
+    </tbody>
+  );
+};

@@ -4,6 +4,10 @@
   padding: 12px;
   text-align: center;
 
+  &--active {
+    background: #473f3f;
+  }
+
   &__wrapper {
     display: flex;
     justify-content: space-between;

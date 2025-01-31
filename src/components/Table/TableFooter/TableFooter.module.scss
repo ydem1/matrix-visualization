@@ -2,4 +2,15 @@
   &__label {
     background: #3d3c3c;
   }
+
+  &__cell {
+    font-size: 20px;
+    border: 1px solid #fff;
+    padding: 12px;
+    text-align: center;
+  }
+
+  &__empty-cell {
+    border: 1px solid #fff;
+  }
 }

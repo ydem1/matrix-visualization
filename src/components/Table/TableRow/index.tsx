@@ -13,10 +13,10 @@ export const TableRow: FC<Props> = ({ currentRowNumber, rows }) => (
   <tr>
     <td className={styles["table-row__cell"]}>{currentRowNumber}</td>
 
-    {rows.map(({ id, amount }) => (
-      <TableCell key={id}>{amount}</TableCell>
+    {rows.map((cell) => (
+      <TableCell key={cell.id} cell={cell} />
     ))}
 
-    <TableCell>{getSumAmount(rows)}</TableCell>
+    <td className={styles["table-row__sum-amount"]}>{getSumAmount(rows)}</td>
   </tr>
 );

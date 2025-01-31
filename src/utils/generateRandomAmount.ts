@@ -1,6 +1,8 @@
-const MIN = 1;
-const MAX = 9;
+import { MAX_AMOUNT_RANGE, MIN_AMOUNT_RANGE } from "src/constants/amountRange";
 
 export const generateRandomAmount = () => {
-  return Math.floor(Math.random() * (MAX - MIN + 1)) + MIN;
+  return (
+    Math.floor(Math.random() * (MAX_AMOUNT_RANGE - MIN_AMOUNT_RANGE + 1)) +
+    MIN_AMOUNT_RANGE
+  );
 };

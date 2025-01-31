@@ -1,4 +1,4 @@
-import { getArrayNumbers } from "../../../utils/getArrayNumbers";
+import { getArrayNumbers } from "src/utils/getArrayNumbers";
 import styles from "./TableHeader.module.scss";
 
 interface Props {

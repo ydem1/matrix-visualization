@@ -1,4 +1,4 @@
-import { getArrayNumbers } from "../../../utils/getArrayNumbers";
+import { getArrayNumbers } from "src/utils/getArrayNumbers";
 import { TableCell } from "../TableCell";
 import styles from "./TableFooter.module.scss";
 

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { TableRow } from "./TableRow";
-import { Cell } from "../../@types/cell";
+import { Cell } from "src/@types/cell";
 
 interface Props {
   matrix: Cell[][];

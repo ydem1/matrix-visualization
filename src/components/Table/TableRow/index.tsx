@@ -1,7 +1,7 @@
 import { FC } from "react";
-import { Cell } from "../../../@types/cell";
-import { TableCell } from "../TableCell";
 import styles from "./TableRow.module.scss";
+import { Cell } from "src/@types/cell";
+import { TableCell } from "../TableCell";
 
 interface Props {
   currentRowNumber: number;

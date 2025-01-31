@@ -1,3 +1,5 @@
+import { useContext } from "react";
+import { MatrixContext } from "src/components/MatrixContext";
 import { Cell } from "src/@types/cell";
 import styles from "./TableCell.module.scss";
 
@@ -6,15 +8,22 @@ interface Props {
 }
 
 export const TableCell: React.FC<Props> = ({ cell }) => {
-  const handlePlusButton = () => {
-    console.log("handlePlusButton");
-    console.log(cell);
+  const { setMatrix } = useContext(MatrixContext);
+
+  const updateCellAmount = (delta: number) => {
+    setMatrix((currentMatrix) =>
+      currentMatrix.map((row) =>
+        row.map((currentCell) =>
+          currentCell.id === cell.id
+            ? { ...currentCell, amount: currentCell.amount + delta }
+            : currentCell
+        )
+      )
+    );
   };
 
-  const handleMinusButton = () => {
-    console.log("handleMinusButton");
-    console.log(cell);
-  };
+  const handlePlusButton = () => updateCellAmount(1);
+  const handleMinusButton = () => updateCellAmount(-1);
 
   return (
     <td className={styles.cell}>

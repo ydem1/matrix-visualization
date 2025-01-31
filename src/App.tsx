@@ -12,6 +12,7 @@ const App = () => (
 
       <section>
         <Table ariaLabel={TITLE}>
+          {/* temp */}
           <TableHeader columnNumbers={N} />
           <TableBody />
           <TableFooter />

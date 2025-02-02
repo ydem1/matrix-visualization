@@ -1,6 +1,7 @@
 import { useCallback, useContext } from "react";
 import cn from "classnames";
 import { MatrixContext } from "src/components/MatrixContext";
+import { getHeatmapColor } from "src/utils/getHeatmapColor";
 import { MAX_AMOUNT_RANGE, MIN_AMOUNT_RANGE } from "src/constants/amountRange";
 import { Cell } from "src/@types/cell";
 import styles from "./TableCell.module.scss";
@@ -62,6 +63,9 @@ export const TableCell: React.FC<Props> = ({
       className={cn(styles.cell, {
         [styles["cell--active"]]: isActive,
       })}
+      style={{
+        backgroundColor: isPercentageVisble ? getHeatmapColor(percentage) : "",
+      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >

@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import cn from "classnames";
 import { calculatePercentageRounded } from "src/utils/calculatePercentageRoundedю";
 import { getSumAmount } from "src/utils/getSumAmount";
 import { Cell } from "src/@types/cell";
@@ -30,11 +29,7 @@ export const TableRow: FC<Props> = ({
   };
 
   return (
-    <tr
-      className={cn(styles["table-row"], {
-        [styles["table-row--active"]]: activeRow === currentRowNumber,
-      })}
-    >
+    <tr className={styles["table-row"]}>
       <td className={styles["table-row__cell"]}>{currentRowNumber}</td>
 
       {rows.map((cell) => (

@@ -40,6 +40,11 @@ export const InputValues = () => {
     setInputN("");
     setInputX("");
     setError("");
+
+    setMatrix([]);
+    setM(0);
+    setN(0);
+    setX(0);
   };
 
   return (

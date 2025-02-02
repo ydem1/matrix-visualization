@@ -78,11 +78,9 @@ export const TableCell: React.FC<Props> = ({
           +
         </button>
 
-        {isPercentageVisble ? (
-          <span>{`${percentage}%`}</span>
-        ) : (
-          <span className={styles["cell__amount"]}>{cell.amount}</span>
-        )}
+        <span className={styles["cell__value"]}>
+          {isPercentageVisble ? `${percentage}%` : cell.amount}
+        </span>
 
         <button className={styles.cell__button} onClick={handleMinusButton}>
           -

@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+import { FC, useContext, useState } from "react";
+import { MatrixContext } from "src/components/MatrixContext";
 import { calculatePercentageRounded } from "src/utils/calculatePercentageRoundedю";
 import { getMaxValueInRow } from "src/utils/getMaxValueInRow";
 import { getSumAmount } from "src/utils/getSumAmount";
@@ -7,32 +8,38 @@ import { TableCell } from "../TableCell";
 import styles from "./TableRow.module.scss";
 
 interface Props {
-  currentRowNumber: number;
+  indexRow: number;
   activeCells: number[];
   rows: Cell[];
 }
 
-export const TableRow: FC<Props> = ({
-  currentRowNumber,
-  rows,
-  activeCells,
-}) => {
+export const TableRow: FC<Props> = ({ indexRow, rows, activeCells }) => {
+  const { setMatrix } = useContext(MatrixContext);
+
   const [activeRow, setActiveRow] = useState(null);
 
   const rowSum = getSumAmount(rows);
   const maxAmount = getMaxValueInRow(rows);
 
   const handleMouseEnter = () => {
-    setActiveRow(currentRowNumber);
+    setActiveRow(indexRow);
   };
 
   const handleMouseLeave = () => {
     setActiveRow(null);
   };
 
+  const handleDeleteRow = () => {
+    setMatrix((matrix) =>
+      matrix.length !== 1
+        ? matrix.filter((_, index) => index !== indexRow)
+        : matrix
+    );
+  };
+
   return (
     <tr className={styles["table-row"]}>
-      <td className={styles["table-row__cell"]}>{currentRowNumber}</td>
+      <td className={styles["table-row__cell"]}>{indexRow + 1}</td>
 
       {rows.map((cell) => (
         <TableCell
@@ -40,7 +47,7 @@ export const TableRow: FC<Props> = ({
           cell={cell}
           isActive={activeCells.includes(cell.id)}
           percentage={calculatePercentageRounded(cell.amount, rowSum)}
-          isPercentageVisble={currentRowNumber === activeRow}
+          isPercentageVisble={indexRow === activeRow}
           maxAmount={maxAmount}
         />
       ))}
@@ -51,6 +58,15 @@ export const TableRow: FC<Props> = ({
         onMouseLeave={handleMouseLeave}
       >
         {rowSum}
+      </td>
+
+      <td className={styles["table-row__delete-row"]}>
+        <button
+          className={styles["table-row__button"]}
+          onClick={handleDeleteRow}
+        >
+          -
+        </button>
       </td>
     </tr>
   );

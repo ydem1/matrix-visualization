@@ -14,7 +14,7 @@ export const TableBody: FC = () => {
         <TableRow
           key={index}
           rows={item}
-          currentRowNumber={index + 1}
+          indexRow={index}
           activeCells={activeCells}
         />
       ))}

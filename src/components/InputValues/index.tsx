@@ -1,35 +1,44 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { generateMatrix } from "src/utils/generateMatrix";
+import { MatrixContext } from "../MatrixContext";
 import { validateValues } from "./constants";
 import styles from "./InputValues.module.scss";
 
 export const InputValues = () => {
-  const [M, setM] = useState("");
-  const [N, setN] = useState("");
-  const [X, setX] = useState("");
+  const { setM, setN, setX, setMatrix } = useContext(MatrixContext);
+
+  const [inputM, setInputM] = useState("");
+  const [inputN, setInputN] = useState("");
+  const [inputX, setInputX] = useState("");
 
   const [error, setError] = useState("");
 
   const handleButtonClick = (e: React.MouseEvent) => {
     e.preventDefault();
+    const numM = +inputM;
+    const numN = +inputN;
+    const numX = +inputX;
 
-    const validationError = validateValues(+M, +N, +X);
+    const validationError = validateValues(numM, numN, numX);
 
     if (validationError) {
       setError(validationError);
     } else {
       setError("");
-      console.log("Input M:", M);
-      console.log("Input N:", N);
-      console.log("Input X:", X);
+
+      setMatrix(generateMatrix(numM, numN));
+      setM(numM);
+      setN(numN);
+      setX(numX);
     }
   };
 
   const handleReset = (e: React.MouseEvent) => {
     e.preventDefault();
 
-    setM("");
-    setN("");
-    setX("");
+    setInputM("");
+    setInputN("");
+    setInputX("");
     setError("");
   };
 
@@ -43,24 +52,24 @@ export const InputValues = () => {
         <input
           className={styles.form__input}
           type="number"
-          value={M}
-          onChange={(e) => setM(e.target.value)}
+          value={inputM}
+          onChange={(e) => setInputM(e.target.value)}
           placeholder="M"
         />
 
         <input
           className={styles.form__input}
           type="number"
-          value={N}
-          onChange={(e) => setN(e.target.value)}
+          value={inputN}
+          onChange={(e) => setInputN(e.target.value)}
           placeholder="N"
         />
 
         <input
           className={styles.form__input}
           type="number"
-          value={X}
-          onChange={(e) => setX(e.target.value)}
+          value={inputX}
+          onChange={(e) => setInputX(e.target.value)}
           placeholder="X"
         />
 

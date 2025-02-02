@@ -2,11 +2,10 @@ import { FC, useContext } from "react";
 import { MatrixContext } from "src/components/MatrixContext";
 import { calculatePercentilesPerColumn } from "src/utils/calculatePercentilesPerColumn";
 import { generateRow } from "src/utils/generateMatrix";
-import { N } from "src/constants/inputsValues";
 import styles from "./TableFooter.module.scss";
 
 export const TableFooter: FC = () => {
-  const { matrix, setMatrix } = useContext(MatrixContext);
+  const { N, matrix, setMatrix } = useContext(MatrixContext);
 
   const handleAddRow = () => {
     const lastRow = matrix[matrix.length - 1];

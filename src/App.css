@@ -11,10 +11,3 @@ main {
   margin-top: 80px;
   margin-bottom: 0;
 }
-
-.table {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-grow: 1;
-}

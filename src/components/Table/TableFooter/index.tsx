@@ -2,17 +2,21 @@ import { FC, useContext } from "react";
 import { MatrixContext } from "src/components/MatrixContext";
 import { calculatePercentilesPerColumn } from "src/utils/calculatePercentilesPerColumn";
 import { generateRow } from "src/utils/generateMatrix";
+import { MAX_M_RANGE } from "src/constants/inputsRange";
 import styles from "./TableFooter.module.scss";
 
 export const TableFooter: FC = () => {
-  const { N, matrix, setMatrix } = useContext(MatrixContext);
+  const { N, matrix, setMatrix, setM } = useContext(MatrixContext);
 
   const handleAddRow = () => {
-    const lastRow = matrix[matrix.length - 1];
-    const maxId = lastRow[lastRow.length - 1].id;
-    const newRow = generateRow(N, maxId + 1);
+    if (matrix.length !== MAX_M_RANGE) {
+      const lastRow = matrix[matrix.length - 1];
+      const maxId = lastRow[lastRow.length - 1].id;
+      const newRow = generateRow(N, maxId + 1);
 
-    setMatrix((prevMatrix) => [...prevMatrix, newRow]);
+      setMatrix((prevMatrix) => [...prevMatrix, newRow]);
+      setM(matrix.length + 1);
+    }
   };
 
   return (

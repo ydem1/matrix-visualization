@@ -3,6 +3,7 @@ import { MatrixContext } from "src/components/MatrixContext";
 import { calculatePercentageRounded } from "src/utils/calculatePercentageRoundedю";
 import { getMaxValueInRow } from "src/utils/getMaxValueInRow";
 import { getSumAmount } from "src/utils/getSumAmount";
+import { MIN_M_RANGE } from "src/constants/inputsRange";
 import { Cell } from "src/@types/cell";
 import { TableCell } from "../TableCell";
 import styles from "./TableRow.module.scss";
@@ -14,7 +15,7 @@ interface Props {
 }
 
 export const TableRow: FC<Props> = ({ indexRow, rows, activeCells }) => {
-  const { setMatrix } = useContext(MatrixContext);
+  const { matrix, setM, setMatrix } = useContext(MatrixContext);
 
   const [activeRow, setActiveRow] = useState(null);
 
@@ -31,10 +32,12 @@ export const TableRow: FC<Props> = ({ indexRow, rows, activeCells }) => {
 
   const handleDeleteRow = () => {
     setMatrix((matrix) =>
-      matrix.length !== 1
+      matrix.length !== MIN_M_RANGE
         ? matrix.filter((_, index) => index !== indexRow)
         : matrix
     );
+
+    setM(matrix.length - 1);
   };
 
   return (

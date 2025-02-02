@@ -1,8 +1,10 @@
+.wrapper {
+  overflow: auto;
+  margin-block: 120px;
+  border: 5px solid;
+}
+
 .table {
   border-collapse: separate;
   border-spacing: 0;
-  width: 100%;
-  max-width: 900px;
-
-  padding-block: 25px;
 }

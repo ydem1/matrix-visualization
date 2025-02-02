@@ -2,7 +2,7 @@ main {
   display: flex;
   flex-direction: column;
 
-  max-width: 1440px;
+  max-width: 1660px;
   margin-inline: auto;
   height: 100vh;
 }

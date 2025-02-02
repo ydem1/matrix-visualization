@@ -1,4 +1,6 @@
 .cell {
+  transition: background-color 0.3s ease;
+
   font-size: 20px;
   border: 1px solid #fff;
   padding: 12px;
@@ -31,5 +33,9 @@
     &:active {
       transform: scale(0.95);
     }
+  }
+
+  &__amount {
+    cursor: default;
   }
 }

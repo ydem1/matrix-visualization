@@ -8,9 +8,16 @@ import styles from "./TableCell.module.scss";
 interface Props {
   cell: Cell;
   isActive: boolean;
+  isPercentageVisble: boolean;
+  percentage: number;
 }
 
-export const TableCell: React.FC<Props> = ({ cell, isActive }) => {
+export const TableCell: React.FC<Props> = ({
+  cell,
+  isActive,
+  percentage,
+  isPercentageVisble,
+}) => {
   const { setHoveredCell, setMatrix } = useContext(MatrixContext);
 
   const updateCellAmount = useCallback(
@@ -62,7 +69,13 @@ export const TableCell: React.FC<Props> = ({ cell, isActive }) => {
         <button className={styles["cell__button"]} onClick={handlePlusButton}>
           +
         </button>
-        <span>{cell.amount}</span>
+
+        {isPercentageVisble ? (
+          <span>{`${percentage}%`}</span>
+        ) : (
+          <span className={styles["cell__amount"]}>{cell.amount}</span>
+        )}
+
         <button className={styles.cell__button} onClick={handleMinusButton}>
           -
         </button>

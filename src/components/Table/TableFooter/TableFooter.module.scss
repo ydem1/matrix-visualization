@@ -15,4 +15,30 @@
   &__empty-cell {
     border: 1px solid #fff;
   }
+
+  &__add-row {
+    border: 1px solid #fff;
+    text-align: center;
+  }
+
+  &__button {
+    width: 24px;
+    height: 24px;
+
+    border-radius: 100%;
+    border: none;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      background: #4ad30a;
+      opacity: 0.8;
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+  }
 }

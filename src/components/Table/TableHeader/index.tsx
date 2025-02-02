@@ -15,6 +15,7 @@ export const TableHeader: FC = () => (
       ))}
 
       <th className={styles["table-header__sum"]}>Sum values</th>
+      <th className={styles["table-header__empty-cell"]} />
     </tr>
   </thead>
 );

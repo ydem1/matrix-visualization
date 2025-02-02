@@ -7,16 +7,16 @@ export const TableHeader: FC = () => {
   const { N } = useContext(MatrixContext);
 
   return (
-    <thead className={styles["table-header"]}>
-      <tr className={styles["table-header__row"]}>
-        <th className={styles["table-header__empty-cell"]} />
+    <thead className={styles.header}>
+      <tr className={styles.header__row}>
+        <th className={styles.header__empty} />
         {getArrayNumbers(N).map((number) => (
-          <th key={number} className={styles["table-header__cell"]}>
+          <th key={number} className={styles.header__cell}>
             {number}
           </th>
         ))}
-        <th className={styles["table-header__sum"]}>Sum values</th>
-        <th className={styles["table-header__empty-cell"]} />
+        <th className={styles.header__sum}>Sum values</th>
+        <th className={styles.header__empty} />
       </tr>
     </thead>
   );

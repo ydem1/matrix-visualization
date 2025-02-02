@@ -1,11 +1,11 @@
-.table-row {
+.row {
   &__cell {
     padding: 12px;
     text-align: center;
     background: #3d3c3c;
   }
 
-  &__sum-amount {
+  &__sum {
     font-size: 20px;
     border: 1px solid #fff;
     padding: 12px;
@@ -20,7 +20,7 @@
     }
   }
 
-  &__delete-row {
+  &__delete {
     border: 1px solid #fff;
     text-align: center;
   }

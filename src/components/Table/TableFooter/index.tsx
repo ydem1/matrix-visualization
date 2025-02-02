@@ -20,23 +20,20 @@ export const TableFooter: FC = () => {
   };
 
   return (
-    <tfoot className={styles["table-footer"]}>
+    <tfoot className={styles.footer}>
       <tr>
-        <td className={styles["table-footer__percentile"]}>50th percentile</td>
+        <td className={styles.footer__percentile}>50th percentile</td>
 
         {calculatePercentilesPerColumn(matrix).map((number, index) => (
-          <td key={index} className={styles["table-footer__cell"]}>
+          <td key={index} className={styles.footer__cell}>
             {number}
           </td>
         ))}
 
-        <th className={styles["table-footer__empty-cell"]} />
+        <th className={styles.footer__empty} />
 
-        <td className={styles["table-footer__add-row"]}>
-          <button
-            className={styles["table-footer__button"]}
-            onClick={handleAddRow}
-          >
+        <td className={styles.footer__add}>
+          <button className={styles.footer__button} onClick={handleAddRow}>
             +
           </button>
         </td>

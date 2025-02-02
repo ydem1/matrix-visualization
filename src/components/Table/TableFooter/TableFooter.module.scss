@@ -1,4 +1,4 @@
-.table-footer {
+.footer {
   &__percentile {
     background: #3d3c3c;
     font-weight: bold;
@@ -12,11 +12,11 @@
     text-align: center;
   }
 
-  &__empty-cell {
+  &__empty {
     border: 1px solid #fff;
   }
 
-  &__add-row {
+  &__add {
     border: 1px solid #fff;
     text-align: center;
   }

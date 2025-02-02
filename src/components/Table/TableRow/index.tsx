@@ -41,8 +41,8 @@ export const TableRow: FC<Props> = ({ indexRow, rows, activeCells }) => {
   };
 
   return (
-    <tr className={styles["table-row"]}>
-      <td className={styles["table-row__cell"]}>{indexRow + 1}</td>
+    <tr className={styles.row}>
+      <td className={styles.row__cell}>{indexRow + 1}</td>
 
       {rows.map((cell) => (
         <TableCell
@@ -56,18 +56,15 @@ export const TableRow: FC<Props> = ({ indexRow, rows, activeCells }) => {
       ))}
 
       <td
-        className={styles["table-row__sum-amount"]}
+        className={styles.row__sum}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
         {rowSum}
       </td>
 
-      <td className={styles["table-row__delete-row"]}>
-        <button
-          className={styles["table-row__button"]}
-          onClick={handleDeleteRow}
-        >
+      <td className={styles.row__delete}>
+        <button className={styles.row__button} onClick={handleDeleteRow}>
           -
         </button>
       </td>

@@ -73,12 +73,12 @@ export const TableCell: React.FC<Props> = ({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={styles["cell__wrapper"]}>
-        <button className={styles["cell__button"]} onClick={handlePlusButton}>
+      <div className={styles.cell__wrapper}>
+        <button className={styles.cell__button} onClick={handlePlusButton}>
           +
         </button>
 
-        <span className={styles["cell__value"]}>
+        <span className={styles.cell__value}>
           {isPercentageVisble ? `${percentage}%` : cell.amount}
         </span>
 

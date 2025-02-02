@@ -1,5 +1,6 @@
 import { FC, useState } from "react";
 import { calculatePercentageRounded } from "src/utils/calculatePercentageRoundedю";
+import { getMaxValueInRow } from "src/utils/getMaxValueInRow";
 import { getSumAmount } from "src/utils/getSumAmount";
 import { Cell } from "src/@types/cell";
 import { TableCell } from "../TableCell";
@@ -19,6 +20,7 @@ export const TableRow: FC<Props> = ({
   const [activeRow, setActiveRow] = useState(null);
 
   const rowSum = getSumAmount(rows);
+  const maxAmount = getMaxValueInRow(rows);
 
   const handleMouseEnter = () => {
     setActiveRow(currentRowNumber);
@@ -39,6 +41,7 @@ export const TableRow: FC<Props> = ({
           isActive={activeCells.includes(cell.id)}
           percentage={calculatePercentageRounded(cell.amount, rowSum)}
           isPercentageVisble={currentRowNumber === activeRow}
+          maxAmount={maxAmount}
         />
       ))}
 

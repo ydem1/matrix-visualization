@@ -11,13 +11,15 @@ interface Props {
   isActive: boolean;
   isPercentageVisble: boolean;
   percentage: number;
+  maxAmount: number;
 }
 
 export const TableCell: React.FC<Props> = ({
   cell,
   isActive,
-  percentage,
   isPercentageVisble,
+  percentage,
+  maxAmount,
 }) => {
   const { setHoveredCell, setMatrix } = useContext(MatrixContext);
 
@@ -64,7 +66,9 @@ export const TableCell: React.FC<Props> = ({
         [styles["cell--active"]]: isActive,
       })}
       style={{
-        backgroundColor: isPercentageVisble ? getHeatmapColor(percentage) : "",
+        backgroundColor: isPercentageVisble
+          ? getHeatmapColor(cell.amount, maxAmount)
+          : "",
       }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
